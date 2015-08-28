@@ -10,6 +10,7 @@ A turing-complete programming language with only one symbol: "."
 - Turing complete! Write any program you can think of!
 - Commenting your code is easy since all characters other than '.' are ignored!
 - Debugging is easy! There are only two possible causes of errors: too many or too few dots.
+- Only requires one working keyboard key to program with.
 
 ## Sample Program
 
