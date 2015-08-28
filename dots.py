@@ -79,10 +79,13 @@ def run(program):
         old_pc = pc
         if c == RIGHT:
             pointer += 1
-            pointer %= len(mem)
+            while pointer <= len(mem):
+                mem.append(0)
         elif c == LEFT:
             pointer -= 1
-            pointer %= len(mem)
+            if pointer < 0:
+                print "Error: either you have too many or two few dots. (out of bounds)"
+                break
         elif c == INC:
             mem[pointer] += 1
             mem[pointer] %= 256
@@ -97,13 +100,13 @@ def run(program):
             if mem[pointer] == 0:
                 pc = match_loop(program, pc)
                 if pc < 0:
-                    print "Error: either you have too many or two few dots."
+                    print "Error: either you have too many or two few dots. (unmatched loop)"
                     break
         elif c == LOOP_END:
             if mem[pointer] != 0:
                 pc = match_loop(program, pc)
                 if pc < 0:
-                    print "Error: either you have too many or two few dots."
+                    print "Error: either you have too many or two few dots. (unmatched loop)"
                     break
         else:
             pass
