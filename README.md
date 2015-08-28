@@ -16,4 +16,4 @@ A turing-complete programming language with only one symbol: "."
 
 A sample `cat` program is provided that will simply copy it's stdin to stdout until it reads a 0 byte. This program is composed of precisely 43453 dots.
 
-We would provide a "Hello World" program but unfortunately it's approximately 6.5x10<sup>71</sup> yottabytes.
+We would provide a "Hello World" program but unfortunately its approximately 6.5x10<sup>71</sup> yottabytes.
