@@ -2,7 +2,7 @@ import sys
 
 
 RIGHT = 0
-LEFT = 0
+LEFT = 1
 INC = 2
 DEC = 3
 LOOP_START = 4
