@@ -79,7 +79,7 @@ def run(program):
         old_pc = pc
         if c == RIGHT:
             pointer += 1
-            while pointer <= len(mem):
+            while pointer >= len(mem):
                 mem.append(0)
         elif c == LEFT:
             pointer -= 1
