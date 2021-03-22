@@ -24,17 +24,17 @@ def compile_file(source_file):
                 elif c == '.':
                     program_n += 1
     except IOError:
-        print "Error: could not open file."
+        print("Error: could not open file.")
         sys.exit(1)
 
     binary = bin(program_n)[3:]
 
     if len(binary) % 3 != 0:
-        print "Error: either you have too many or too few dots."
+        print("Error: either you have too many or too few dots.")
         sys.exit(1)
 
     program = []
-    for i in xrange(0, len(binary), 3):
+    for i in range(0, len(binary), 3):
         b = binary[i:i+3]
         inst = int(b, 2)
         program.append(inst)
@@ -71,7 +71,7 @@ def match_loop(text, start):
 def run(program):
     pc = 0
 
-    mem = [0 for i in xrange(30000)]
+    mem = [0 for i in range(30000)]
     pointer = 0
             
     while pc < len(program):
@@ -84,7 +84,7 @@ def run(program):
         elif c == LEFT:
             pointer -= 1
             if pointer < 0:
-                print "Error: either you have too many or too few dots. (out of bounds)"
+                print("Error: either you have too many or too few dots. (out of bounds)")
                 break
         elif c == INC:
             mem[pointer] += 1
@@ -100,13 +100,13 @@ def run(program):
             if mem[pointer] == 0:
                 pc = match_loop(program, pc)
                 if pc < 0:
-                    print "Error: either you have too many or too few dots. (unmatched loop)"
+                    print("Error: either you have too many or too few dots. (unmatched loop)")
                     break
         elif c == LOOP_END:
             if mem[pointer] != 0:
                 pc = match_loop(program, pc)
                 if pc < 0:
-                    print "Error: either you have too many or too few dots. (unmatched loop)"
+                    print("Error: either you have too many or too few dots. (unmatched loop)")
                     break
         else:
             pass
@@ -115,7 +115,7 @@ def run(program):
 
 def main():
     if len(sys.argv) <= 1:
-        print "usage: %s sourcefile" % sys.argv[0]
+        print("usage: %s sourcefile" % sys.argv[0])
         sys.exit(1)
 
     source_file = sys.argv[1]
